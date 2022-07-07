@@ -12,7 +12,7 @@ pipeline {
         stage("Ansible Job") {
             steps {
                 dir("production") {
-                    ansiblePlaybook("uharov_ansible") {
+                    ansiblePlaybook('playbook.yml') {
                     playbook(playbook.yml)
                     ansibleName('uharov_ansible')
                     inventoryPath('ansible_host')
