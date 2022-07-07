@@ -15,7 +15,7 @@ pipeline {
                     ansiblePlaybook(
                         playbook: './playbook.yml',
                         credentialsId: "36745364-f4af-4aa5-be8d-08169ced78dc",
-                        inventoryContent: "env.TARGET"
+                        inventoryContent: env.TARGET
 //                        extraVars: [
 //                            target: env.TARGET
 //                        ]
