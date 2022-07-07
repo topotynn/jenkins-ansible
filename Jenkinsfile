@@ -14,7 +14,7 @@ pipeline {
                 dir("production") {
                     ansiblePlaybook(
                         playbook: './playbook.yml',
-                        credentialsId: "36745364-f4af-4aa5-be8d-08169ced78dc"
+                        credentialsId: "36745364-f4af-4aa5-be8d-08169ced78dc",
                         extraVars: [
                             target: env.TARGET
                         ]
