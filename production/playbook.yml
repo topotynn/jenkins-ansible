@@ -1,0 +1,7 @@
+---
+#- hosts: "{{ target }}"
+- hosts: all
+  remote_user: ec2-user
+  roles:
+    - { role: careers-api, tags: careers-api }
+#    - { role: careers-ui, tags: docker }

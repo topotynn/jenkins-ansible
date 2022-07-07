@@ -1,0 +1,4 @@
+---
+# vars file for digicode-careers-deploy
+service_name: "default"
+service_dir: "default"

@@ -1,0 +1,4 @@
+---
+# tasks file for digicode-careers-deploy
+- include: amazon.yml
+  when: ansible_distribution == 'Amazon'

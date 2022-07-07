@@ -1,0 +1,12 @@
+---
+- name: Update service
+  become: true
+  docker_service:
+    project_src: "/opt/{{ service_dir }}"
+    services:
+      - "{{ service_name }}"
+#    project_name: "{{ service.project_name }}"
+    build: no
+    pull: yes
+    restarted: yes
+  register: output
