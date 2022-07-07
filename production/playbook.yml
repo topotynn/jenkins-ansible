@@ -1,6 +1,6 @@
 ---
 - name: Ansible test playbook for integration with Jenkins
-  hosts: all
+  hosts: "{{ target }}"
   remote_user: uharov
 
   tasks:
