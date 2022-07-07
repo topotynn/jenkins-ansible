@@ -15,13 +15,7 @@ pipeline {
                     ansiblePlaybook(
                         playbook: './playbook.yml',
                         inventory: env.TARGET,
-                        extraVars: [
-                            roles_path: './roles',
-                            service_name: env.SERVICE_NAME,
-                            service_dir: env.SERVICE_DIR
-                            ],
-                            tags: 'careers-api',
-                            credentialsId: env.ANSIBLE_CREDENTIALS_ID,
+                        credentialsId: "36745364-f4af-4aa5-be8d-08169ced78dc"
                     )
                 }
             }
