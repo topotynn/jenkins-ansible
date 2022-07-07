@@ -12,13 +12,17 @@ pipeline {
         stage("Ansible Job") {
             steps {
                 dir("production") {
-                    ansiblePlaybook('playbook.yml') {
-                    playbook(playbook.yml)
-                    ansibleName('uharov_ansible')
-                    inventoryPath('ansible_host')
-                    credentialsId('36745364-f4af-4aa5-be8d-08169ced78dc')
-                    become(true)
-                    }
+                    ansiblePlaybook(
+                        playbook: './playbook.yml',
+                        inventory: env.TARGET,
+                        extraVars: [
+                            roles_path: './roles',
+                            service_name: env.SERVICE_NAME,
+                            service_dir: env.SERVICE_DIR
+                            ],
+                            tags: 'careers-api',
+                            credentialsId: env.ANSIBLE_CREDENTIALS_ID,
+                    )
                 }
             }
         }
