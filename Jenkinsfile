@@ -11,19 +11,13 @@ pipeline {
     stages {
         stage("Ansible Job") {
             steps {
-                dir("deployment/production") {
+                dir("production") {
                     sh(script: "echo ${env.TARGET} > ./ansible_host")
-                    ansiblePlaybook(
-                        playbook: './playbook.yml',
-                        inventory: './ansible_host',
-                        extraVars: [
-                            roles_path: './roles',
-                            service_name: env.SERVICE_NAME,
-                            service_dir: env.SERVICE_DIR
-                            ],
-                            tags: 'careers-api',
-                            credentialsId: env.ANSIBLE_CREDENTIALS_ID,
-                    )
+                    ansiblePlaybook("production/playbook.yml") {
+                    inventoryPath('ansible_host')
+                    credentialsId('36745364-f4af-4aa5-be8d-08169ced78dc')
+                    become(true)
+                    }
                 }
             }
         }
