@@ -12,7 +12,8 @@ pipeline {
         stage("Ansible Job") {
             steps {
                 dir("production") {
-                    ansiblePlaybook("production/playbook.yml") {
+                    ansiblePlaybook("playbook.yml") {
+                    playbook(playbook.yml)
                     ansibleName('uharov_ansible')
                     inventoryPath('ansible_host')
                     credentialsId('36745364-f4af-4aa5-be8d-08169ced78dc')
